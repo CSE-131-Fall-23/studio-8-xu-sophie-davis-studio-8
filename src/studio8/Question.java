@@ -10,10 +10,14 @@ public class Question {
 		this.answer = answer;
 		this.points = points;
 	}
-	
+	public void setAnswer (String newAnswer) {
+		answer = newAnswer;
+	}
 	public void displayPrompt() {
 		System.out.println(this.prompt + "(" + this.points + " points)");
 	}
+	
+
 	
 	public int checkAnswer(String givenAnswer) {
 		if(answer.equals(givenAnswer)) { //String comparison

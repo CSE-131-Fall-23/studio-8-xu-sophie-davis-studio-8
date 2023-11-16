@@ -4,12 +4,32 @@ public class SelectAllQuestion extends MultipleChoiceQuestion {
 
 	public SelectAllQuestion(String prompt, String answer, String[] choices) {
 		//Hint: 1 point per choice
+		super(prompt, answer, 1, choices);
 		//FIXME
 	}
 	
+	
 	public int checkAnswer(String givenAnswer) {
 		//FIXME Should return partial credit (if earned)!
-		return 0;
+		int points = 2;
+		for(int i = 0; i < givenAnswer.length();i++)
+		{
+			char place = givenAnswer.charAt(i);
+			if(super.getAnswer().contains(""+place))
+			{
+				points++;
+			}
+			else
+			{
+				points--;
+			}
+		}
+		
+		return points;
+	}
+	public void displayPrompt() {
+		//FIXME
+		super.displayPrompt();
 	}
 	
 	public static void main(String[] args) {
